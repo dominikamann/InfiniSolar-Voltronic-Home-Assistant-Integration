@@ -14,7 +14,7 @@ A way to get a InfiniSolar 10k-PAR-B inverter with PIP17 protocol (and many othe
  5. Create a file named "solardataget.sh" and add the content of "solardataget.sh"
  6. Setup a cron job which runs every 5 Minutes with the command "sudo solardataget.sh" (run sudo crontab -e | and add line */5 * * * * sudo bash /home/smarthome/test/solardataget.sh)
  7. Add the content of "configuration.yaml" to your Home-Assistant configuration file
- 8. Add a new dashboard in Home-Assistant and edit it with YAML. Add the content of "ha_dashboard.yaml"
+ 8. Add a new dashboard in Home-Assistant, edit it with YAML and add the content of "ha_dashboard.yaml"
  9. Install Node-Red -> https://nodered.org/
  10. Open Node-Red and import flow "Node-Red-MPP_DAILY_YEARLY_TO_HA-Flow.txt"
  11. Enjoy it ;)
