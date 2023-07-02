@@ -1,0 +1,172 @@
+
+mqtt:
+  sensor:
+  - name: "PS Solar Input Power 1"
+    state_topic: "PS/status/solar_input_power_1/value"
+    unit_of_measurement: 'W'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: measurement
+  - name: "PS Solar Input Power 2"
+    state_topic: "PS/status/solar_input_power_2/value"
+    unit_of_measurement: 'W'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: measurement
+  - name: "PS Battery Power Direction"
+    state_topic: "PS/status/battery_power_direction/value"
+    value_template: '{{value}}'
+  - name: "PS AC Input Total Active Power"
+    state_topic: "PS/status/ac_input_total_active_power/value"
+    unit_of_measurement: 'W'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: measurement
+  - name: "PS AC Input Active Power R"
+    state_topic: "PS/status/ac_input_active_power_r/value"
+    unit_of_measurement: 'W'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: measurement
+  - name: "PS AC Input Total Power S"
+    state_topic: "PS/status/ac_input_active_power_s/value"
+    unit_of_measurement: 'W'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: measurement
+  - name: "PS AC Input Total Power T"
+    state_topic: "PS/status/ac_input_active_power_t/value"
+    unit_of_measurement: 'W'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: measurement
+  - name: "GS Battery Capacity Percentage"
+    state_topic: "GS/status/battery_capacity/value"
+    unit_of_measurement: '%'
+    value_template: '{{value}}'
+    device_class: battery
+    state_class: measurement
+  - name: "GS Inner Temperature"
+    state_topic: "GS/status/inner_temperature/value"
+    unit_of_measurement: '°C'
+    value_template: '{{value}}'
+    device_class: temperature
+    state_class: measurement
+  - name: "GS Component Max Temperature"
+    state_topic: "GS/status/component_max_temperature/value"
+    unit_of_measurement: '°C'
+    value_template: '{{value}}'
+    device_class: temperature
+    state_class: measurement
+  - name: "EY Generated Energy Current Year"
+    state_topic: "EY/status/generated_energy/value"
+    unit_of_measurement: 'kWh'
+    value_template: '{{ value  | float / 1000 | round(2)}}'
+    device_class: energy
+    state_class: total_increasing   
+  - name: "EM Generated Energy Current Month"
+    state_topic: "EM/status/generated_energy/value"
+    unit_of_measurement: 'kWh'
+    value_template: '{{ value  | float / 1000 | round(2)}}'
+    device_class: energy
+    state_class: total_increasing  
+  - name: "ED Generated Energy Current Day"
+    state_topic: "ED/status/generated_energy/value"
+    unit_of_measurement: 'kWh'
+    value_template: '{{ value  | float / 1000 | round(2) }}'
+    device_class: energy
+    state_class: total_increasing  
+  - name: "ET Generated Energy"
+    state_topic: "ET/status/generated_energy/value"
+    unit_of_measurement: 'kWh'
+    value_template: '{{value}}'
+    device_class: energy
+    state_class: total_increasing
+  - name: "ID Serialnumber"
+    state_topic: "ID/status/serial_number/value"
+    value_template: '{{value}}'
+  - name: "GS Solar Input Voltage 1"
+    state_topic: "GS/status/solar_input_voltage_1/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement
+  - name: "GS Solar Input Voltage 2"
+    state_topic: "GS/status/solar_input_voltage_2/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement
+  - name: "GS Battery Voltage"
+    state_topic: "GS/status/battery_voltage/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement
+  - name: "GS Input Voltage R"
+    state_topic: "GS/status/ac_input_voltage_r/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement    
+  - name: "GS Input Voltage S"
+    state_topic: "GS/status/ac_input_voltage_s/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement     
+  - name: "GS Input Voltage T"
+    state_topic: "GS/status/ac_input_voltage_t/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement     
+  - name: "GS Output Voltage R"
+    state_topic: "GS/status/ac_output_voltage_r/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement    
+  - name: "GS Output Voltage S"
+    state_topic: "GS/status/ac_output_voltage_s/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement     
+  - name: "GS Output Voltage T"
+    state_topic: "GS/status/ac_output_voltage_t/value"
+    unit_of_measurement: 'V'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: voltage
+    state_class: measurement  
+  - name: "GS Solar Input Current 1"
+    state_topic: "GS/status/solar_input_current_1/value"
+    unit_of_measurement: 'A'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: current
+    state_class: measurement  
+  - name: "GS Solar Input Current 2"
+    state_topic: "GS/status/solar_input_current_2/value"
+    unit_of_measurement: 'A'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: current
+    state_class: measurement 
+  - name: "GS Battery Current"
+    state_topic: "GS/status/battery_current/value"
+    unit_of_measurement: 'A'
+    value_template: '{{ value | multiply(0.1) | float | round(2) }}'
+    device_class: current
+    state_class: measurement  
+  - name: "GS Input Frequency"
+    state_topic: "GS/status/ac_input_frequency/value"
+    unit_of_measurement: 'Hz'
+    value_template: '{{ value | multiply(0.01) | float | round(2) }}'
+    device_class: frequency
+    state_class: measurement  
+  - name: "GS Output Frequency"
+    state_topic: "GS/status/ac_output_frequency/value"
+    unit_of_measurement: 'Hz'
+    value_template: '{{ value | multiply(0.01) | float | round(2) }}'
+    device_class: frequency
+    state_class: measurement  
+

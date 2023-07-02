@@ -1,0 +1,118 @@
+title: SmartHome
+views:
+  - path: default_view
+    title: Home
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.et_generated_energy
+            secondary_info: last-updated
+          - entity: sensor.ey_generated_energy_current_year
+            secondary_info: last-updated
+          - entity: sensor.em_generated_energy_current_month
+            secondary_info: last-updated
+          - entity: sensor.ed_generated_energy_current_day
+            secondary_info: last-updated
+          - entity: sensor.gs_battery_capacity_percentage
+            secondary_info: last-updated
+          - entity: sensor.gs_battery_current
+            secondary_info: last-updated
+          - entity: sensor.gs_battery_voltage
+            secondary_info: last-updated
+          - entity: sensor.gs_component_max_temperature
+            secondary_info: last-updated
+          - entity: sensor.gs_inner_temperature
+            secondary_info: last-updated
+          - entity: sensor.gs_input_frequency
+            secondary_info: last-updated
+          - entity: sensor.gs_input_voltage_r
+            secondary_info: last-updated
+          - entity: sensor.gs_input_voltage_s
+            secondary_info: last-updated
+          - entity: sensor.gs_input_voltage_t
+            secondary_info: last-updated
+          - entity: sensor.gs_output_frequency
+            secondary_info: last-updated
+          - entity: sensor.gs_output_voltage_r
+            secondary_info: last-updated
+          - entity: sensor.gs_output_voltage_s
+            secondary_info: last-updated
+          - entity: sensor.gs_output_voltage_t
+            secondary_info: last-updated
+          - entity: sensor.gs_solar_input_current_1
+            secondary_info: last-updated
+          - entity: sensor.gs_solar_input_current_2
+            secondary_info: last-updated
+          - entity: sensor.gs_solar_input_voltage_1
+            secondary_info: last-updated
+          - entity: sensor.gs_solar_input_voltage_2
+            secondary_info: last-updated
+          - entity: sensor.ps_ac_input_active_power_r
+            secondary_info: last-updated
+          - entity: sensor.ps_ac_input_total_active_power
+            secondary_info: last-updated
+          - entity: sensor.ps_ac_input_total_power_s
+            secondary_info: last-updated
+          - entity: sensor.ps_ac_input_total_power_t
+            secondary_info: last-updated
+          - entity: sensor.ps_battery_power_direction
+            secondary_info: last-updated
+          - entity: sensor.ps_solar_input_power_1
+            secondary_info: last-updated
+          - entity: sensor.ps_solar_input_power_2
+            secondary_info: last-updated
+          - entity: sensor.id_serialnumber
+            secondary_info: last-updated
+      - graph: line
+        type: sensor
+        entity: sensor.ps_solar_input_power_1
+        detail: 2
+      - graph: line
+        type: sensor
+        entity: sensor.ps_solar_input_power_2
+        detail: 2
+      - graph: line
+        type: sensor
+        entity: sensor.ps_ac_input_total_active_power
+        detail: 2
+      - type: entity
+        entity: sensor.ps_battery_power_direction
+        icon: mdi:battery
+        state_color: true
+      - type: gauge
+        entity: sensor.gs_battery_capacity_percentage
+        needle: true
+        severity:
+          green: 60
+          yellow: 30
+          red: 0
+      - type: weather-forecast
+        entity: weather.forecast_smarthome
+      - chart_type: line
+        period: day
+        type: statistics-graph
+        entities:
+          - sensor.et_generated_energy
+        stat_types:
+          - sum
+        days_to_show: 30
+      - type: entities
+        entities:
+          - entity: sensor.speedtest_download
+          - entity: sensor.speedtest_upload
+          - entity: sensor.speedtest_ping
+        title: Internet Verbindung
+        state_color: true
+      - chart_type: line
+        period: hour
+        type: statistics-graph
+        entities:
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+        days_to_show: 30
+        stat_types:
+          - mean
+          - min
+          - max
+        title: Internet Verbindung

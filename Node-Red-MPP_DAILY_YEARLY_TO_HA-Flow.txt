@@ -1,0 +1,190 @@
+[
+    {
+        "id": "dad76eb5f05770fc",
+        "type": "tab",
+        "label": "MPP_DAILY_YEARLY_TO_HA",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3ae0c14ab5aa0bf9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b2ff019ee058960c",
+        "type": "mqtt in",
+        "z": "dad76eb5f05770fc",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "3ae0c14ab5aa0bf9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "0cf31fb2afaf5fe6",
+                "6b2abf734319c95a"
+            ]
+        ]
+    },
+    {
+        "id": "464536404c8c089c",
+        "type": "debug",
+        "z": "dad76eb5f05770fc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "0cf31fb2afaf5fe6",
+        "type": "switch",
+        "z": "dad76eb5f05770fc",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "YEAR",
+                "vt": "flow"
+            },
+            {
+                "t": "eq",
+                "v": "MONTH",
+                "vt": "flow"
+            },
+            {
+                "t": "eq",
+                "v": "DAY",
+                "vt": "flow"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "464536404c8c089c",
+                "6011f56d2b0c3715"
+            ],
+            [
+                "95fad81e1c43c9e7",
+                "464536404c8c089c"
+            ],
+            [
+                "85970dae1ae05708",
+                "464536404c8c089c"
+            ]
+        ]
+    },
+    {
+        "id": "6011f56d2b0c3715",
+        "type": "mqtt out",
+        "z": "dad76eb5f05770fc",
+        "name": "",
+        "topic": "EY/status/generated_energy/value",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ae0c14ab5aa0bf9",
+        "x": 780,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6b2abf734319c95a",
+        "type": "function",
+        "z": "dad76eb5f05770fc",
+        "name": "function 1",
+        "func": "flow.set('YEAR', 'EY' + new Date().getFullYear().toString() + '/status/generated_energy/value')\nflow.set('MONTH', 'EM' + new Date().getFullYear().toString() + ('0' + (new Date().getMonth() + 1).toString()).slice(-2) + '/status/generated_energy/value')\nflow.set('DAY', 'ED' + new Date().getFullYear().toString() + ('0' + (new Date().getMonth() + 1).toString()).slice(-2) + ('0' + new Date().getDate().toString()).slice(-2) + '/status/generated_energy/value')\nflow.set('TEST', new Date().getDate())\nmsg.payload = flow.get('DAY');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "95fad81e1c43c9e7",
+        "type": "mqtt out",
+        "z": "dad76eb5f05770fc",
+        "name": "",
+        "topic": "EM/status/generated_energy/value",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ae0c14ab5aa0bf9",
+        "x": 820,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "85970dae1ae05708",
+        "type": "mqtt out",
+        "z": "dad76eb5f05770fc",
+        "name": "",
+        "topic": "ED/status/generated_energy/value",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3ae0c14ab5aa0bf9",
+        "x": 780,
+        "y": 320,
+        "wires": []
+    }
+]
