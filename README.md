@@ -1,7 +1,7 @@
 
 # InfiniSolar-Voltronic-Home-Assistant-Integration
 
-A way to get a InfiniSolar 10k-PAR-B (PIP17 Protocol) and many other inverters integrated into Home-Assistant with the help of the mpp-solar python project.
+A way to get a InfiniSolar 10k-PAR-B inverter with PIP17 protocol (and many others) integrated into Home-Assistant with the help of the mpp-solar python project.
 
 ![grafik](https://github.com/dominikamann/InfiniSolar-Voltronic-Home-Assistant-Integration/assets/29973737/2d56d31c-ed31-42c8-a67a-d74205e5a2ee)
 
