@@ -21,7 +21,7 @@ A way to get a InfiniSolar 10k-PAR-B inverter with PIP17 protocol (and many othe
 
 **Why Node-Red?**
 
-MPP-SOLAR is sending e.g. the date / year / month as a mqtt topic content. This will not work for home assistant. My node-red flow converts to topic name in a HA conform name. E.g. "EY2021/value" to "EY/value".  
+MPP-SOLAR is sending e.g. the date / year / month as a mqtt topic content. This will not work for home assistant. My node-red flow converts the topic name to a HA conform name. E.g. "EY2021/value" to "EY/value".  
 
 **How to use it with other voltronic/mpp-solar/... inverters?**
 
